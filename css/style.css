@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+
+    /* Ranges from 421px to 1199px */
+    --responsive: calc((var(--min-font) * 1px) + (var(--max-font) - var(--min-font)) * ((100vw - 560px) / (1200 - 560)));
+}
+
+:root {
+
+    /* Fonts */
+    --main-font: 'Roboto', sans-serif;
+
+    /* Colors  */
+    --text-color-main: #333;
+    --text-color-secondary: #666;
+    --border-color: #e2e2e2;
+    --button-green: hsl(141, 59%, 56%);
+    --button-green-hover: hsl(141, 59%, 50%);
+
+    /* Typography  */
+    --text-size-1: 15;
+    --text-size-2: 20;
+    --text-size-3: 35;
+
+    /* Sizes */
+    --grid-max-width: 980px;
+}
+
+
+
+body {
+    min-height: 100vh;
+    font-family: var(--main-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+/* Grid  */
+.grid-wrap {
+    padding: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    grid-gap: 2rem;
+    margin: 0 auto;
+    max-width: var(--grid-max-width) !important;
+}   .grid + .grid {
+        margin-top: 2rem;
+}
+
+@media (max-width: 560px) {
+    .grid .card {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+
+/* Buttons  */
+.btn {
+    border: none;
+    padding: 0.8rem 1.15rem;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all ease-out 100ms;
+}
+
+.btn-green {
+    background-color: var(--button-green);
+    color: #fff;
+}   .btn-green:hover {
+        background-color: var(--button-green-hover);
+}   .btn-green:active {
+        box-shadow: inset 0 0 5px rgba(0,0,0,.3);
+}
+
+
+
+/* Typography */
+.text-1 {
+    --max-font: var(--text-size-1);
+    --min-font: calc(var(--text-size-1) - 1);
+    font-size: var(--responsive);
+    line-height: 1rem;
+}
+
+.text-2 {
+    --max-font: var(--text-size-2);
+    --min-font: calc(var(--text-size-2) - 2);
+    font-size: var(--responsive);
+}
+
+.text-3 {
+    --max-font: var(--text-size-3);
+    --min-font: var(--text-size-2);
+    font-size: var(--responsive);
+}
+
+.text-3 sub {
+    --max-font: var(--text-size-2);
+    --min-font: var(--text-size-1);
+    font-size: var(--responsive);
+}
+
+
+@media (min-width: 1200px) {
+    .text-1, .text-2, .text-3, .text-3 sub, .btn {
+        font-size: calc(var(--max-font) * 1px);
+    }
+}
+
+@media (max-width: 560px) {
+    .text-1, .text-2, .text-3, .text-3 sub, .btn {
+        font-size: calc(var(--min-font) * 1px);
+    }
+}
+
+.fas.fa-shopping-cart {
+    margin-left: -2px;
+}
+
+
+
+/* Card styles  */
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-align: left;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    transition: all ease-out 100ms;
+}  .card:hover {
+    box-shadow: 5px 5px 30px rgba(0,0,0,.05);
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.card .card-header {
+    font-size: var(--text-size-2);
+}
+
+.card .card-body {
+    padding: 25px 30px;
+}
+
+.card .card-elem + .card-elem {
+    margin-top: 1rem;
+}
+
+.card .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 30px;
+}
+
+
+
+/* Card typography  */
+.card .text-1 {
+    color: var(--text-color-secondary);
+}
+
+.card .text-2 {
+    color: var(--text-color-main);
+    font-weight: 700;
+}
+
+.card-price .text-3 {
+    color: var(--text-color-main);
+    font-weight: 700;
+}
